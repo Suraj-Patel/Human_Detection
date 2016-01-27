@@ -42,14 +42,16 @@ function image_desc = getDescriptor(filename)
 %            angle(i,j) = Ir(i,j)/Ic(i,j);
 
             if Ir(i,j) == 0 && Ic(i,j) == 0
-                magnitude(i,j) = 0;
+    %            magnitude(i,j) = 0;
+                angle(i,j) = nan;
             else
                 magnitude(i,j) = Ir(i,j)*Ir(i,j) + Ic(i,j)*Ic(i,j);
+                angle(i,j) = atan2d(Ir(i,j),Ic(i,j));
             end
         end
     end
 
-    angle = atan2d(Ir,Ic);
+    %angle = atan2d(Ir,Ic);
     angle = -angle;
     magnitude = sqrt(magnitude)/sqrt(2);
     magnitude = round(magnitude);

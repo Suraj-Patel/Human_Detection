@@ -91,7 +91,7 @@ for i = 1:10
 end
 
 W = ones(3780,1)
-alpha = 0.4
+alpha = 0.7
 chk_positive = zeros(10,1);
 chk_negative = zeros(10,1);
 no_of_iterations = 0;
@@ -144,7 +144,7 @@ filePos1 = fopen('crop001008b.txt', 'w');
 %Take images from testing set and using the value of W classify the images
 %whether they are positive or negative.
 
-for i = 3:8
+for i = 3:7
     file = strcat('./testing/positive/', positive_images(i).name);
     testing_image = getDescriptor(file);
     x = testing_image.'*W;
